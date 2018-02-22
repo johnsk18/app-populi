@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">App-Populi</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_news_feed">News Feed</string>
+    <string name="title_events">Events</string>
+    <string name="title_positions">Positions</string>
+    <string name="title_info">Info</string>
 </resources>
