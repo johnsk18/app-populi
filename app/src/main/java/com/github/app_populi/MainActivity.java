@@ -1,5 +1,6 @@
 package com.github.app_populi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_news_feed:
                     mTextMessage.setText(R.string.title_news_feed);
+                    //testing opening newsfeed activity when newsfeed tab selected
+                    startActivity(new Intent(MainActivity.this,NewsFeed.class));
                     return true;
                 case R.id.navigation_events:
                     mTextMessage.setText(R.string.title_events);
