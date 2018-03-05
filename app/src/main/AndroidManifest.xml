@@ -21,7 +21,7 @@
         <activity android:name=".NewsFeed"></activity>
         <activity android:name=".Events"></activity>
         <activity android:name=".Positions"></activity>
-        <activity android:name=".Info"></activity>
+        <activity android:name=".Infornation"></activity>
     </application>
 
 </manifest>
