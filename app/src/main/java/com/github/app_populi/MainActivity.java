@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -19,18 +17,16 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_news_feed:
-                    mTextMessage.setText(R.string.title_news_feed);
-                    //testing opening newsfeed activity when newsfeed tab selected
-                    startActivity(new Intent(MainActivity.this,NewsFeed.class));
+                    setContentView(R.layout.activity_news_feed);
                     return true;
                 case R.id.navigation_events:
-                    mTextMessage.setText(R.string.title_events);
+                    setContentView(R.layout.activity_events);
                     return true;
                 case R.id.navigation_positions:
-                    mTextMessage.setText(R.string.title_positions);
+                    setContentView(R.layout.activity_positions);
                     return true;
                 case R.id.navigation_info:
-                    mTextMessage.setText(R.string.title_info);
+                    setContentView(R.layout.activity_info);
                     return true;
             }
             return false;
@@ -42,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
