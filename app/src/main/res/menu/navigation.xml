@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item
-        android:id="@+id/navigation_news_feed"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_news_feed" />
-
     <item
         android:id="@+id/navigation_events"
         android:icon="@drawable/ic_dashboard_black_24dp"
@@ -16,9 +10,5 @@
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_positions" />
 
-    <item
-        android:id="@+id/navigation_info"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_info" />
 
 </menu>
