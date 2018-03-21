@@ -18,10 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewsFeed"></activity>
-        <activity android:name=".Events"></activity>
-        <activity android:name=".Positions"></activity>
-        <activity android:name=".Info"></activity>
     </application>
 
 </manifest>
