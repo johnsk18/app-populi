@@ -29,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.navigation_positions:
                                 selectedFragment = PositionsFragment.newInstance();
                                 break;
+                            case R.id.navigation_newsfeed:
+                                selectedFragment = NewsfeedFragment.newInstance();
+                                break;
+                            case R.id.navigation_info:
+                                selectedFragment = InfoFragment.newInstance();
+                                break;
                         }
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                         transaction.replace(R.id.frame_layout, selectedFragment);
@@ -39,10 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Manually displaying the first fragment - one time only
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_layout, EventsFragment.newInstance());
+        transaction.replace(R.id.frame_layout, NewsfeedFragment.newInstance());
         transaction.commit();
 
-        //Used to select an item programmatically
-        //bottomNavigationView.getMenu().getItem(2).setChecked(true);
     }
 }

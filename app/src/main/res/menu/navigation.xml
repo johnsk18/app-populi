@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/navigation_newsfeed"
+        android:icon="@drawable/ic_newsfeed_black"
+        android:title="@string/title_news_feed" />
+
+    <item
         android:id="@+id/navigation_events"
         android:icon="@drawable/ic_events_black"
         android:title="@string/title_events" />
 
     <item
         android:id="@+id/navigation_positions"
-        android:icon="@drawable/ic_postions_black"
+        android:icon="@drawable/ic_positions_black"
         android:title="@string/title_positions" />
+
+    <item
+        android:id="@+id/navigation_info"
+        android:icon="@drawable/ic_info_black"
+        android:title="@string/title_info" />
 
 
 </menu>
