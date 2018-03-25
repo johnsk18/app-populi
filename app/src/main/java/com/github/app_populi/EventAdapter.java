@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,11 +38,19 @@ public class EventAdapter extends ArrayAdapter<EventData> {
         }
         EventData currentEvent = eventsList.get(positon);
 
+        //Name
         TextView Name = (TextView) listItem.findViewById(R.id.Name);
         Name.setText(currentEvent.getEventName());
 
-        TextView Description = (TextView) listItem.findViewById(R.id.Description);
-        Description.setText(currentEvent.getEventDescription());
+        //Description
+        //TextView Description = (TextView) listItem.findViewById(R.id.Description);
+        //Description.setText(currentEvent.getEventDescription());
+
+        //Date
+        DateFormat df = new SimpleDateFormat("MMM dd");
+        TextView Date = (TextView) listItem.findViewById(R.id.Date);
+        Date.setText(df.format(currentEvent.getEventDate()));
+
         return listItem;
     }
 }

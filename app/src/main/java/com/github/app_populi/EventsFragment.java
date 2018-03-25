@@ -1,18 +1,26 @@
 package com.github.app_populi;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Date;
+
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 public class EventsFragment extends Fragment{
     public static EventsFragment newInstance() {
@@ -32,14 +40,46 @@ public class EventsFragment extends Fragment{
 
         ListView listView = (ListView) view.findViewById(R.id.eventsList);
         //TODO: Add values file for events data just in fragment for testing purposes currently
-        ArrayList<EventData> eventsList = new ArrayList<>();
-        eventsList.add(new EventData("Fundraiser","Give some money :)"));
-        eventsList.add(new EventData("Meeting","Take some notes"));
-        eventsList.add(new EventData("Debate","Debate some stuff"));
-        eventsList.add(new EventData("Elections","Vote for me"));
+        final ArrayList<EventData> eventsList = new ArrayList<>();
+        eventsList.add(new EventData("Fundraiser","Give some money :)",new Date(2018,3,12)));
+        eventsList.add(new EventData("Meeting","Take some notes",new Date(2018,3,17)));
+        eventsList.add(new EventData("Debate","Debate some stuff",new Date(2018,3,20)));
+        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
 
         EventAdapter eventAdapter = new EventAdapter(getContext(),eventsList);
         listView.setAdapter(eventAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                EventData currentEvent = eventsList.get(position);
+                String description = currentEvent.getEventDescription();
+                //Toast.makeText(getActivity(),currentEvent.getEventDescription(), Toast.LENGTH_LONG).show();
+                LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                View customView = inflater.inflate(R.layout.descriptionpopup,null);
+
+                TextView  desc = (TextView) customView.findViewById(R.id.description);
+                desc.setText(description);
+
+                final PopupWindow mPopupWindow = new PopupWindow(
+                        customView,
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                );
+                if(Build.VERSION.SDK_INT>=21){
+                    mPopupWindow.setElevation(5.0f);
+                }
+                ImageButton closeButton = (ImageButton) customView.findViewById(R.id.close);
+
+                closeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Dismiss the popup window
+                        mPopupWindow.dismiss();
+                    }
+                });
+                mPopupWindow.showAtLocation(view, Gravity.CENTER,0,0);
+            }
+        });
         return view;
     }
 
@@ -48,5 +88,4 @@ public class EventsFragment extends Fragment{
         super.onActivityCreated(savedInstanceState);
 
     }
-
 }
