@@ -5,4 +5,12 @@
     <string name="title_events">Events</string>
     <string name="title_positions">Positions</string>
     <string name="title_info">Info</string>
+
+    <string-array name="EventsArray">
+        <item>Fundraiser</item>
+        <item>Meeting</item>
+        <item>Debate</item>
+        <item>Primaries</item>
+        <item>Elections</item>
+    </string-array>
 </resources>
