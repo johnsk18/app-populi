@@ -1,21 +1,17 @@
 package com.github.app_populi;
 
-import android.content.Context;
 import android.os.Build;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -76,7 +72,7 @@ public class EventsFragment extends Fragment{
                 String description = currentEvent.getEventDescription();
                 //Toast.makeText(getActivity(),currentEvent.getEventDescription(), Toast.LENGTH_LONG).show();
                 LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                View customView = inflater.inflate(R.layout.descriptionpopup,null);
+                View customView = inflater.inflate(R.layout.events_descriptionpopup,null);
 
                 //Name
                 TextView Name = (TextView) customView.findViewById(R.id.Name);
