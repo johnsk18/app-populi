@@ -3,25 +3,20 @@ package com.github.app_populi;
 import java.util.Date;
 
 public class PositionsData {
-    private String eventName;
-    private String eventDescription;
-    private Date eventDate;
+    private String issueName;
+    private String issueDescription;
 
     public PositionsData(String eventName, String eventDescription, Date eventDate){
-        this.eventName = eventName;
-        this.eventDescription = eventDescription;
-        this.eventDate = eventDate;
+        this.issueName = issueName;
+        this.issueDescription = issueDescription;
     };
 
     public String getEventName() {
-        return eventName;
+        return issueName;
     }
 
     public String getEventDescription() {
-        return eventDescription;
+        return issueDescription;
     }
 
-    public Date getEventDate() {
-        return eventDate;
-    }
 }
