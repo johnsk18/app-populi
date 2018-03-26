@@ -35,6 +35,7 @@ public class EventsFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        final ArrayList<PopupWindow> openedWindows = new ArrayList<>();
         View view = inflater.inflate(R.layout.fragment_events, container, false);
 
 
@@ -44,6 +45,9 @@ public class EventsFragment extends Fragment{
         eventsList.add(new EventData("Fundraiser","Give some money :)",new Date(2018,3,12)));
         eventsList.add(new EventData("Meeting","Take some notes",new Date(2018,3,17)));
         eventsList.add(new EventData("Debate","Debate some stuff",new Date(2018,3,20)));
+        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
+        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
+        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
         eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
 
         EventAdapter eventAdapter = new EventAdapter(getContext(),eventsList);
@@ -59,12 +63,15 @@ public class EventsFragment extends Fragment{
 
                 TextView  desc = (TextView) customView.findViewById(R.id.description);
                 desc.setText(description);
-
+                for(PopupWindow x : openedWindows){
+                    x.dismiss();
+                }
                 final PopupWindow mPopupWindow = new PopupWindow(
                         customView,
                         ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT
                 );
+                openedWindows.add(mPopupWindow);
                 if(Build.VERSION.SDK_INT>=21){
                     mPopupWindow.setElevation(5.0f);
                 }
