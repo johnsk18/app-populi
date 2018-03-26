@@ -44,11 +44,6 @@ public class PositionsAdapter extends ArrayAdapter<PositionsData> {
         //TextView Description = (TextView) listItem.findViewById(R.id.Description);
         //Description.setText(currentPosition.getEventDescription());
 
-        //Date
-        DateFormat df = new SimpleDateFormat("MMM dd");
-        TextView Date = (TextView) listItem.findViewById(R.id.Date);
-        Date.setText(df.format(currentPosition.getEventDate()));
-
         return listItem;
     }
 }
