@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/rounded_box">
 
@@ -18,7 +18,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -41,7 +41,6 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-condensed"
             android:text="TextView"
-            android:textAlignment="textStart"
             android:textColor="@color/colorBlack"
             android:textSize="24sp"
             android:textStyle="bold"

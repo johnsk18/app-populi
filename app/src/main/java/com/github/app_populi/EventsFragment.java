@@ -96,8 +96,8 @@ public class EventsFragment extends Fragment{
                 }
                 final PopupWindow mPopupWindow = new PopupWindow(
                         customView,
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.MATCH_PARENT
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
                 );
                 openedWindows.add(mPopupWindow);
                 if(Build.VERSION.SDK_INT>=21){
