@@ -1,12 +1,10 @@
 package com.github.app_populi;
 
-import java.util.Date;
-
 public class PositionsData {
     private String issueName;
     private String issueDescription;
 
-    public PositionsData(String eventName, String eventDescription, Date eventDate){
+    public PositionsData(String issueName, String issueDescription){
         this.issueName = issueName;
         this.issueDescription = issueDescription;
     };
