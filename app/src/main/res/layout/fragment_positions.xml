@@ -5,11 +5,20 @@
     tools:context="com.github.app_populi.PositionsFragment">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/title_positions"
+        android:textColor="@color/colorPrimary"
         android:textSize="30sp"/>
-
+    <ListView
+        android:id="@+id/positionsList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/title"
+        android:background="@drawable/rounded_box"/>
 
 </RelativeLayout>

@@ -38,11 +38,11 @@ public class PositionsAdapter extends ArrayAdapter<PositionsData> {
 
         //Name
         TextView Name = (TextView) listItem.findViewById(R.id.Name);
-        Name.setText(currentPosition.getEventName());
+        Name.setText(currentPosition.getIssueName());
 
         //Description
         //TextView Description = (TextView) listItem.findViewById(R.id.Description);
-        //Description.setText(currentPosition.getEventDescription());
+        //Description.setText(currentPosition.getIssueDescription());
 
         return listItem;
     }

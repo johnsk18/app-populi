@@ -9,11 +9,11 @@ public class PositionsData {
         this.issueDescription = issueDescription;
     };
 
-    public String getEventName() {
+    public String getIssueName() {
         return issueName;
     }
 
-    public String getEventDescription() {
+    public String getIssueDescription() {
         return issueDescription;
     }
 
