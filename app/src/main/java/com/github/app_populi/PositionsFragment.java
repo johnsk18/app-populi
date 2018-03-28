@@ -43,10 +43,24 @@ public class PositionsFragment extends Fragment {
 
         ListView listView = (ListView) view.findViewById(R.id.positionsList);
         //TODO: Add values file for events data just in fragment for testing purposes currently
+
+        //Positions Data
+        ArrayList<String> positionsData = new ArrayList<>();
+        positionsData.add("{\n  \"name\": \"Fiscal Policy\",\n  \"description\": \"Description of fiscal policy positions\", \"subname1\": \"Tax Policy\",\n  \"subdescription1\": \"Description of tax positions\" , \"subname2\": \"Debt/Deficit\",\n  \"subdescription2\": \"Descriptions of positions on the debt and deficit\"\n}");
+        positionsData.add("{\n  \"name\": \"Healthcare\",\n  \"description\": \"Broad healthcare goals\", \"subname1\": \"Government Role in Healthcare\",\n  \"subdescription1\": \"Position on government's role in healthcare\" , \"subname2\": \"Healthcare Policy Proposal\",\n  \"subdescription2\": \"Description of healthcare policy plan\"\n}");
+        positionsData.add("{\n  \"name\": \"Foreign Policy\",\n  \"description\": \"Description of foreign policy positions\", \"subname1\": \"Middle East\",\n  \"subdescription1\": \"Positions on issues related to MENA and the U.S. role there\" , \"subname2\": \"America's Role In The World\",\n  \"subdescription2\": \"Position on America's role in the world\"\n}");
+        positionsData.add("{\n  \"name\": \"Immigration\",\n  \"description\": \"Description of immigration positions and policy\", \"subname1\": \"Unauthorized Immigration\",\n  \"subdescription1\": \"Position on unauthorized immigration and policy concerning it\" , \"subname2\": \"Refugees\",\n  \"subdescription2\": \"Positions on what America's refugee policy should be\"\n}");
+        positionsData.add("{\n  \"name\": \"Jobs\",\n  \"description\": \"Description of jobs policy supported by candidate\", \"subname1\": \"Trade Agreements\",\n  \"subdescription1\": \"Positions on how to address trade agreements\" , \"subname2\": \"Employment\",\n  \"subdescription2\": \"Policy proposed to ameliorate unemployment\"\n}");
+
         final ArrayList<PositionsData> positionsList = new ArrayList<>();
-        positionsList.add(new PositionsData("Position 1","This is a very useful description"));
-        positionsList.add(new PositionsData("Position 2","Take some notes - also a useful description"));
-       
+        for(int i = 0; i < positionsData.size(); i++) {
+            try {
+                positionsList.add(new PositionsData(positionsData.get(i)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
 
         PositionsAdapter PositionsAdapter = new PositionsAdapter(getContext(),positionsList);
         listView.setAdapter(PositionsAdapter);
@@ -63,7 +77,7 @@ public class PositionsFragment extends Fragment {
                 Name.setText(currentPosition.getIssueName());
                 //Description
                 TextView Description = (TextView) customView.findViewById(R.id.Description);
-                Description.setText("Issue Details: "+currentPosition.getIssueDescription());
+                Description.setText(currentPosition.getIssueDescription());
 
                 //close any previously opened popup windows
                 for(PopupWindow x : openedWindows){
