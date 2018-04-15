@@ -12,17 +12,9 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
-
-/**
- * Created by woolf on 3/21/2018.
- */
 
 public class PositionsFragment extends Fragment {
     public static PositionsFragment newInstance() {
