@@ -24,6 +24,12 @@ import com.twitter.sdk.android.tweetui.UserTimeline;
  */
 
 public class NewsfeedFragment  extends Fragment{
+
+    private static final String baseURl = "http://twitter.com";
+    private static String twitterAccount;
+    private static String widgetInfo;
+
+
     public static NewsfeedFragment newInstance() {
         NewsfeedFragment fragment = new NewsfeedFragment();
         return fragment;
@@ -32,6 +38,10 @@ public class NewsfeedFragment  extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        twitterAccount = getResources().getString(R.string.twitter_account);
+        widgetInfo = "<a class=\"twitter-timeline\" href=\"https://twitter.com/" + twitterAccount + "?ref_src=twsrc%5Etfw\">Tweets by " + twitterAccount + "</a>" +
+                "<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\"://platform.twitter.com/widgets.js\";fjs.parentNode.insertBefore(js,fjs);}}(document,\"script\",\"twitter-wjs\");</script>";
 
     /*
         // https://github.com/twitter/twitter-kit-android/wiki/Show-Timelines
@@ -47,9 +57,7 @@ public class NewsfeedFragment  extends Fragment{
 
     }
 
-    private static final String baseURl = "http://twitter.com";
-    private static final String widgetInfo = "<a class=\"twitter-timeline\" href=\"https://twitter.com/SophiaBatiste?ref_src=twsrc%5Etfw\">Tweets by SophiaBatiste</a>"+
-            "<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\"://platform.twitter.com/widgets.js\";fjs.parentNode.insertBefore(js,fjs);}}(document,\"script\",\"twitter-wjs\");</script>";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
