@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.Locale;
 /**
  * Created by woolf on 3/21/2018.
  */
@@ -82,7 +84,13 @@ public class InfoFragment extends Fragment {
                 try{
                     //Looks up address based on zipcode
                     //If found, returns address and displays it
-                    mText2.setText(pd.getAddress(zip));
+                    String address = pd.getAddress(zip);
+                    mText2.setText(address);
+
+                    // Open google maps with the found address
+                    String uri = String.format(Locale.ENGLISH, "geo:0,0?q=%s", address);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                    getContext().startActivity(intent);
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
