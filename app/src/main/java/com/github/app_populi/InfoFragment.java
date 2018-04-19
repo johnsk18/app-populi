@@ -1,7 +1,5 @@
 package com.github.app_populi;
 
-import java.util.AbstractMap;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
@@ -16,7 +14,9 @@ import android.widget.TextView;
  * Created by woolf on 3/21/2018.
  */
 
+//Fragment for Info Tab
 public class InfoFragment extends Fragment {
+    //Creates a new instance of this class
     public static InfoFragment newInstance() {
         InfoFragment fragment = new InfoFragment();
         return fragment;
@@ -30,8 +30,10 @@ public class InfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         final View view = inflater.inflate(R.layout.fragment_info, container, false);
 
+        //Donate Button
         Button donateButton = (Button) view.findViewById(R.id.donate_button);
         donateButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -42,8 +44,10 @@ public class InfoFragment extends Fragment {
             }
         });
 
+        //Email Submit
         Button submit = (Button) view.findViewById(R.id.infoSubmit);
         final TextView mText = (TextView) view.findViewById(R.id.textView2);
+        //On submission of email address
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 EditText emailEdit = (EditText) view.findViewById(R.id.userEmail);
@@ -55,12 +59,15 @@ public class InfoFragment extends Fragment {
                     e.printStackTrace();
                     return;
                 }
+                //Adds Email to List
                 pd.addEmail(email);
             }
         });
 
+        //Polling Location Finder
         Button submit2 = (Button) view.findViewById(R.id.infoSubmit2);
         final TextView mText2 = (TextView) view.findViewById(R.id.textView2);
+        //On submission of zipcode
         submit2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 EditText zipEdit = (EditText) view.findViewById(R.id.userZipcode);
@@ -73,6 +80,8 @@ public class InfoFragment extends Fragment {
                     return;
                 }
                 try{
+                    //Looks up address based on zipcode
+                    //If found, returns address and displays it
                     mText2.setText(pd.getAddress(zip));
                 }catch (Exception e) {
                     e.printStackTrace();

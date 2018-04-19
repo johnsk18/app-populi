@@ -12,18 +12,15 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 /**
  * Created by woolf on 3/21/2018.
  */
-
+//Fragment for Candidate Positions Tab
 public class PositionsFragment extends Fragment {
     public static PositionsFragment newInstance() {
         PositionsFragment fragment = new PositionsFragment();
@@ -52,6 +49,7 @@ public class PositionsFragment extends Fragment {
         positionsData.add("{\n  \"name\": \"Immigration\",\n  \"description\": \"Description of immigration positions and policy\", \"subname1\": \"Unauthorized Immigration\",\n  \"subdescription1\": \"Position on unauthorized immigration and policy concerning it\" , \"subname2\": \"Refugees\",\n  \"subdescription2\": \"Positions on what America's refugee policy should be\"\n}");
         positionsData.add("{\n  \"name\": \"Jobs\",\n  \"description\": \"Description of jobs policy supported by candidate\", \"subname1\": \"Trade Agreements\",\n  \"subdescription1\": \"Positions on how to address trade agreements\" , \"subname2\": \"Employment\",\n  \"subdescription2\": \"Policy proposed to ameliorate unemployment\"\n}");
 
+        //Creates List out of Positions Data
         final ArrayList<PositionsData> positionsList = new ArrayList<>();
         for(int i = 0; i < positionsData.size(); i++) {
             try {
@@ -61,7 +59,7 @@ public class PositionsFragment extends Fragment {
             }
         }
 
-
+        //Create Positions Adapter
         PositionsAdapter PositionsAdapter = new PositionsAdapter(getContext(),positionsList);
         listView.setAdapter(PositionsAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -1,25 +1,20 @@
 package com.github.app_populi;
 
-import java.io.*;
-import java.util.Iterator;
-import java.util.Map;
-import android.content.Context;
-import android.app.Activity;
-
-import android.content.res.AssetManager;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-
+//Class to handle data for PositionFragment
 public class PositionsData {
     private String issueName;
     private String issueDescription;
 
+    //Constructor
     public PositionsData(String jsonStr) throws Exception {
-        JSONObject obj = new JSONObject(jsonStr);
 
+        //Creates a JSON object out of JSON String argument
+        JSONObject obj = new JSONObject(jsonStr);
         JSONObject jo = (JSONObject) obj;
 
+        //Reads in data from JSON object
         this.issueName = (String) jo.get("name");
         System.out.println(this.issueName);
         this.issueDescription = ((String) jo.get("description"));
@@ -30,10 +25,12 @@ public class PositionsData {
 
     }
 
+    //Returns the Issue Name
     public String getIssueName() {
         return issueName;
     }
 
+    //Returns the Issue Description
     public String getIssueDescription() {
         return issueDescription;
     }
