@@ -4,12 +4,15 @@
     android:layout_height="match_parent"
     tools:context="com.github.app_populi.InfoFragment">
 
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/title_info"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:id="@+id/textView" />
 
     <Button
         android:id="@+id/donate_button"
@@ -25,14 +28,15 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="78dp"
-        android:textSize="25sp"
-        android:text="Information Form" />
+        android:text="Email Address"
+        android:textSize="25sp" />
 
     <EditText
         android:id="@+id/userEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/informationForm"
+        android:layout_alignStart="@+id/informationForm"
         android:layout_below="@+id/informationForm"
         android:ems="10"
         android:inputType="textEmailAddress" />
@@ -41,8 +45,50 @@
         android:id="@+id/infoSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/informationForm"
-        android:layout_marginRight="55dp"
+        android:layout_alignBaseline="@+id/userEmail"
+        android:layout_alignBottom="@+id/userEmail"
+        android:layout_toEndOf="@+id/userEmail"
+        android:layout_toRightOf="@+id/userEmail"
         android:text="Submit" />
+
+    <TextView
+        android:id="@+id/informationForm2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="200dp"
+        android:textSize="25sp"
+        android:text="Polling Location" />
+
+    <EditText
+        android:id="@+id/userZipcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/informationForm2"
+        android:layout_alignStart="@+id/informationForm2"
+        android:layout_below="@+id/informationForm2"
+        android:ems="10"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/infoSubmit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/userZipcode"
+        android:layout_alignBottom="@+id/userZipcode"
+        android:layout_toEndOf="@+id/userZipcode"
+        android:layout_toRightOf="@+id/userZipcode"
+        android:text="Submit" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/userZipcode"
+        android:layout_alignStart="@+id/userZipcode"
+        android:layout_below="@+id/infoSubmit2"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 </RelativeLayout>
