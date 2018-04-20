@@ -1,14 +1,44 @@
 {
-  "name": "Fiscal Policy",
-  "description": "Fiscal policy blah blah blah",
-  "1": {
-    "id": "1",
-    "name": "Income tax",
-    "description": "Tax Policy blah blah"
-  },
-  "2": {
-    "id": "2",
-    "name": "Debt/Deficit",
-    "description": "Deficit blah blah blah"
-  }
+  "positions": [
+    {
+      "name": "Fiscal Policy",
+      "description": "Description of fiscal policy positions",
+      "subname1": "Tax Policy",
+      "subdescription1": "Description of tax positions",
+      "subname2": "Debt/Deficit",
+      "subdescription2": "Descriptions of positions on the debt and deficit"
+    },
+    {
+      "name": "Healthcare",
+      "description": "Broad healthcare goals",
+      "subname1": "Government Role in Healthcare",
+      "subdescription1": "Position on government's role in healthcare",
+      "subname2": "Healthcare Policy Proposal",
+      "subdescription2": "Description of healthcare policy plan"
+    },
+    {
+      "name": "Foreign Policy",
+      "description": "Description of foreign policy positions",
+      "subname1": "Middle East",
+      "subdescription1": "Positions on issues related to MENA and the U.S. role there",
+      "subname2": "America's Role In The World",
+      "subdescription2": "Position on America's role in the world"
+    },
+    {
+      "name": "Immigration",
+      "description": "Description of immigration positions and policy",
+      "subname1": "Unauthorized Immigration",
+      "subdescription1": "Position on unauthorized immigration and policy concerning it",
+      "subname2": "Refugees",
+      "subdescription2": "Positions on what America's refugee policy should be"
+    },
+    {
+      "name": "Jobs",
+      "description": "Description of jobs policy supported by candidate",
+      "subname1": "Trade Agreements",
+      "subdescription1": "Positions on how to address trade agreements",
+      "subname2": "Employment",
+      "subdescription2": "Employment"
+    }
+  ]
 }
