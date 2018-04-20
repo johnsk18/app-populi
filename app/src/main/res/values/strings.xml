@@ -7,6 +7,4 @@
     <string name="title_info">Info</string>
     <string name="title_description">Description</string>
     <string name="twitter_account">SophiaBatiste</string>
-    <string name="com.twitter.sdk.android.CONSUMER_KEY">wbw7BHa6etxC2VmuGTt78gKvl</string>
-    <string name="com.twitter.sdk.android.CONSUMER_SECRET">D8vugoxWITsnG4cWYaYOB3stQu0fgv3LazSEQMMs1L84QHrcjx</string>
 </resources>
