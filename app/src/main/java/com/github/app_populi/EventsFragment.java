@@ -42,7 +42,8 @@ public class EventsFragment extends Fragment{
 
 
         ListView listView = (ListView) view.findViewById(R.id.eventsList);
-        //TODO: Add values file for events data just in fragment for testing purposes currently
+
+        // Events data
         final ArrayList<EventData> eventsList = loadEvents();
 
         EventAdapter eventAdapter = new EventAdapter(getContext(),eventsList);

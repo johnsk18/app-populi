@@ -46,7 +46,6 @@ public class PositionsFragment extends Fragment {
 
 
         ListView listView = (ListView) view.findViewById(R.id.positionsList);
-        //TODO: Add values file for events data just in fragment for testing purposes currently
 
         //Positions Data
         final ArrayList<PositionsData> positionsList = loadPositions();
