@@ -4,30 +4,52 @@
     android:layout_height="match_parent"
     tools:context="com.github.app_populi.InfoFragment">
 
-
-
+    <!-- Title -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/title_info"
         android:textSize="30sp"
+        android:textColor="@color/colorPrimary"
         android:id="@+id/textView" />
 
+    <!-- Donate Button -->
     <Button
         android:id="@+id/donate_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Donate" />
 
+    <!-- Countdown -->
+    <TextView
+        android:id="@+id/countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:text="12"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="121dp"
+        android:text="days until election"
+        android:textSize="20sp" />
+
+    <!-- Email Submit -->
     <TextView
         android:id="@+id/informationForm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="78dp"
+        android:layout_marginTop="176dp"
+        android:layout_toLeftOf="@+id/countdown"
         android:text="Email Address"
         android:textSize="25sp" />
 
@@ -35,9 +57,8 @@
         android:id="@+id/userEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/informationForm"
-        android:layout_alignStart="@+id/informationForm"
-        android:layout_below="@+id/informationForm"
+        android:layout_alignLeft ="@+id/informationForm"
+        android:layout_centerVertical="true"
         android:ems="10"
         android:inputType="textEmailAddress" />
 
@@ -55,20 +76,19 @@
         android:id="@+id/informationForm2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="200dp"
-        android:textSize="25sp"
-        android:text="Polling Location" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft ="@+id/informationForm"
+        android:layout_marginBottom="185dp"
+        android:text="Polling Location"
+        android:textSize="25sp" />
 
     <EditText
         android:id="@+id/userZipcode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/informationForm2"
-        android:layout_alignStart="@+id/informationForm2"
-        android:layout_below="@+id/informationForm2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/informationForm"
+        android:layout_marginBottom="128dp"
         android:ems="10"
         android:inputType="text" />
 
@@ -91,4 +111,6 @@
         android:layout_below="@+id/infoSubmit2"
         android:layout_marginTop="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+
 </RelativeLayout>

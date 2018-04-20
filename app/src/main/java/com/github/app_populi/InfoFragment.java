@@ -2,6 +2,7 @@ package com.github.app_populi;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextClock;
 import android.widget.TextView;
+
+import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 import java.util.Locale;
 /**
@@ -94,9 +99,32 @@ public class InfoFragment extends Fragment {
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
+
+
             }
         });
 
+        // Countdown Clock
+        final TextView count_down_clock = (TextView) view.findViewById(R.id.countdown);
+        Calendar start_cal = Calendar.getInstance();
+        Calendar end_cal = Calendar.getInstance();
+        end_cal.set(2018,4,26);
+        long start_in_milli = start_cal.getTimeInMillis();
+        long end_in_milli = end_cal.getTimeInMillis();
+        long total_in_milli = end_in_milli - start_in_milli;
+
+        CountDownTimer timer = new CountDownTimer(total_in_milli,1000) {
+            @Override
+            public void onTick(long time_left_in_milli) {
+                //count_down_clock.setText((int) TimeUnit.MILLISECONDS.toDays(time_left_in_milli));
+            }
+
+            @Override
+            public void onFinish() {
+                //count_down_clock.setText("Election Day!");
+            }
+        };
+        timer.start();
         return view;
     }
 }
