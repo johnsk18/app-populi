@@ -97,19 +97,23 @@ public class PositionsFragment extends Fragment {
         return view;
     }
 
+    // Loads all the events from res/raw/positions.json
     public ArrayList<PositionsData> loadPositions() {
 
         ArrayList<PositionsData> positionsList = new ArrayList<>();
 
+        // Load json file from resources, and convert to string
         InputStream is = getContext().getResources().openRawResource(R.raw.positions);
         String isString = convertStreamToString(is);
         JSONObject json;
         JSONArray positions;
         try {
+            // Parse through file
             json = new JSONObject(isString);
             positions = json.getJSONArray("positions");
 
             for(int i = 0; i < positions.length(); ++i) {
+                // Store position
                 JSONObject event = positions.getJSONObject(i);
                 positionsList.add(new PositionsData(event.toString()));
             }
@@ -122,6 +126,7 @@ public class PositionsFragment extends Fragment {
 
     }
 
+    // Helper function to convert an InputStream to String
     static String convertStreamToString(java.io.InputStream is) {
         java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
         return s.hasNext() ? s.next() : "";

@@ -102,23 +102,28 @@ public class EventsFragment extends Fragment{
 
     }
 
+    // Loads all the events from res/raw/events.json
     public ArrayList<EventData> loadEvents() {
 
         ArrayList<EventData> eventsList = new ArrayList<>();
 
+        // String to Date formatter
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 
+        // Load json file from resources, and convert to string
         InputStream is = getContext().getResources().openRawResource(R.raw.events);
         String isString = convertStreamToString(is);
         JSONObject json;
         JSONArray events;
         try {
+            // Parse through file
             json = new JSONObject(isString);
             events = json.getJSONArray("events");
 
             for(int i = 0; i < events.length(); ++i) {
                 JSONObject event = events.getJSONObject(i);
 
+                // Pull out fields, and store in object
                 String name = event.getString("name");
                 String description = event.getString("description");
                 Date date = formatter.parse(event.getString("date"));
@@ -134,6 +139,7 @@ public class EventsFragment extends Fragment{
 
     }
 
+    // Helper function to convert an InputStream to String
     static String convertStreamToString(java.io.InputStream is) {
         java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
         return s.hasNext() ? s.next() : "";
