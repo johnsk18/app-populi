@@ -1,0 +1,29 @@
+{
+  "events": [
+    {
+      "name": "Fundraiser",
+      "description": "Give some money :)",
+      "date": "03/12/2018"
+    },
+    {
+      "name": "Meeting",
+      "description": "Take some notes",
+      "date": "03/17/2018"
+    },
+    {
+      "name": "Debate",
+      "description": "Debate some stuff",
+      "date": "03/21/2018"
+    },
+    {
+      "name": "Meeting",
+      "description": "Take some notes",
+      "date": "03/1/2018"
+    },
+    {
+      "name": "Elections",
+      "description": "Vote for me",
+      "date": "04/26/2018"
+    }
+  ]
+}

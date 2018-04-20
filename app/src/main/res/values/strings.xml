@@ -5,4 +5,6 @@
     <string name="title_events">Events</string>
     <string name="title_positions">Positions</string>
     <string name="title_info">Info</string>
+    <string name="title_description">Description</string>
+    <string name="twitter_account">SophiaBatiste</string>
 </resources>
