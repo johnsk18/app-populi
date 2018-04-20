@@ -1,7 +1,7 @@
 # app-populi
 ### A Customizable Political Campaign App
 
-Please refer to the wiki for set up and customization instructions
+Please refer to the wiki `https://github.com/perribus/app-populi/wiki` for set up and customization instructions
 
 
 ## Description
