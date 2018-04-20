@@ -13,6 +13,10 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -39,29 +43,7 @@ public class EventsFragment extends Fragment{
 
         ListView listView = (ListView) view.findViewById(R.id.eventsList);
         //TODO: Add values file for events data just in fragment for testing purposes currently
-        final ArrayList<EventData> eventsList = new ArrayList<>();
-        eventsList.add(new EventData("Fundraiser","Give some money :)",new Date(2018,3,12)));
-        eventsList.add(new EventData("Meeting","Take some notes",new Date(2018,3,17)));
-        eventsList.add(new EventData("Debate","Debate some stuff",new Date(2018,3,20)));
-        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
-        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
-        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
-        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
-
-        eventsList.add(new EventData("Fundraiser","Give some money :)",new Date(2018,3,12)));
-        eventsList.add(new EventData("Meeting","Take some notes",new Date(2018,3,17)));
-        eventsList.add(new EventData("Debate","Debate some stuff",new Date(2018,3,20)));
-        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
-        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
-        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
-        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
-        eventsList.add(new EventData("Fundraiser","Give some money :)",new Date(2018,3,12)));
-        eventsList.add(new EventData("Meeting","Take some notes",new Date(2018,3,17)));
-        eventsList.add(new EventData("Debate","Debate some stuff",new Date(2018,3,20)));
-        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
-        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
-        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
-        eventsList.add(new EventData("Elections","Vote for me",new Date(2018,3,28)));
+        final ArrayList<EventData> eventsList = loadEvents();
 
         EventAdapter eventAdapter = new EventAdapter(getContext(),eventsList);
         listView.setAdapter(eventAdapter);
@@ -118,5 +100,42 @@ public class EventsFragment extends Fragment{
     public void onActivityCreated(Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);
 
+    }
+
+    public ArrayList<EventData> loadEvents() {
+
+        ArrayList<EventData> eventsList = new ArrayList<>();
+
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+
+        InputStream is = getContext().getResources().openRawResource(R.raw.events);
+        String isString = convertStreamToString(is);
+        JSONObject json;
+        JSONArray events;
+        try {
+            json = new JSONObject(isString);
+            events = json.getJSONArray("events");
+
+            for(int i = 0; i < events.length(); ++i) {
+                JSONObject event = events.getJSONObject(i);
+
+                String name = event.getString("name");
+                String description = event.getString("description");
+                Date date = formatter.parse(event.getString("date"));
+
+                eventsList.add(new EventData(name, description, date));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return eventsList;
+        }
+
+        return eventsList;
+
+    }
+
+    static String convertStreamToString(java.io.InputStream is) {
+        java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+        return s.hasNext() ? s.next() : "";
     }
 }
